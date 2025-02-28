@@ -30,6 +30,7 @@ internal class ChatCompositeViewImpl(
     context: Context,
     private val chatAdapter: ChatAdapter,
     private val showActionBar: Boolean = false,
+    private val inputAutoFocus: Boolean = false,
 ) : FrameLayout(context) {
     private val composeView = ComposeView(context)
     private val locator get() = ServiceLocator.getInstance(chatAdapter.instanceIdAccessor())
@@ -60,7 +61,7 @@ internal class ChatCompositeViewImpl(
             onChanged = {
                 composeView.setContent {
                     ChatCompositeTheme {
-                        NavigatableBaseScreen(viewModel = it, showActionBar = showActionBar)
+                        NavigatableBaseScreen(viewModel = it, showActionBar = showActionBar, inputAutoFocus = inputAutoFocus)
                     }
                 }
             },

@@ -33,10 +33,11 @@ public final class ChatThreadView extends FrameLayout {
      * Creates a ChatThreadView with a ChatThreadAdapter.
      * @param context the context to use for creating the ChatThreadView
      * @param chatAdapter the ChatAdapter to set for the ChatThreadView
+     * @param inputAutoFocus the flag allow auto focus to Chat Input Box when view is displayed
      */
-    public ChatThreadView(final Context context, final ChatAdapter chatAdapter) {
+    public ChatThreadView(final Context context, final ChatAdapter chatAdapter, final Boolean inputAutoFocus) {
         super(context);
-        setChatAdapter(chatAdapter);
+        setChatAdapter(chatAdapter, inputAutoFocus);
     }
 
     /**
@@ -59,14 +60,15 @@ public final class ChatThreadView extends FrameLayout {
      */
     public ChatThreadView(final Context context, final AttributeSet attrs, final ChatAdapter chatAdapter) {
         super(context, attrs);
-        setChatAdapter(chatAdapter);
+        setChatAdapter(chatAdapter, false);
     }
 
     /**
      * Sets the ChatAdapter for the ChatThreadView.
      * @param chatAdapter the ChatAdapter to set for the ChatThreadView
+     * @param inputAutoFocus the flag allow auto focus to Chat Input Box when view is displayed
      */
-    void setChatAdapter(final ChatAdapter chatAdapter) {
-        addView(new ChatCompositeViewImpl(this.getContext(), chatAdapter, false));
+    void setChatAdapter(final ChatAdapter chatAdapter, final Boolean inputAutoFocus) {
+        addView(new ChatCompositeViewImpl(this.getContext(), chatAdapter, false, inputAutoFocus));
     }
 }
