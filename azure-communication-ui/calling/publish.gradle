@@ -1,6 +1,6 @@
 apply plugin: 'maven-publish'
 
-def LIB_GROUP_ID = 'com.azure.android'
+def LIB_GROUP_ID = 'com.github.thanhlcm90'
 def CALLING_LIB_ARTIFACT_ID = 'azure-communication-ui-calling'
 def CALLING_LIB_VERSION = "$call_library_version_name"
 def CALLING_LIB_DESCRIPTION = "Azure Communication Calling UI for Android."
